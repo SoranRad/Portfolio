@@ -1,0 +1,70 @@
+﻿@inject IOptions<SiteSettings> SiteSettings
+<header class="main-header navbar navbar-expand-md    border-bottom  shadow-sm py-0" style="height: 60px">
+<nav class="container">
+    <a class="navbar-brand  pt-0 mt-1" asp-page="/Home/Index">
+        <img src="@Url.Content("~/dist/images/logo.png")" width="50" height="50" class="float-start" alt=" @SiteSettings.Value.SiteTitleShort" />
+        <span class=" ">
+            @SiteSettings.Value.SiteTitleShort
+        </span>
+        <span id="brand-sub-title" class="d-block text-xsmall">
+            @SiteSettings.Value.SiteTitle
+        </span>
+    </a>
+    <button class="navbar-toggler btn btn-toolbar btn-sm" type="button" data-toggle="collapse" data-target="#navbarNavDropdown1" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fas fa-ellipsis-v"></i>
+    </button>
+    <div class="collapse navbar-collapse  text-small " style="z-index: 9999" id="navbarNavDropdown1">
+            <ul class="navbar-nav hover-line d-md-none mr-auto rounded-lg shadow-sm bg-white border-1 border-silver hover-line" style="width: 100px">
+            <li class="nav-item my-1 text-center">
+                <a asp-page="/Home/Index" class="nav-link text-dark" title="Home">
+                    Home
+                </a>
+            </li>
+            <li class="nav-item  my-1 text-center">
+                <a href="https://20devs.com" class="nav-link text-dark" title="Weblog">
+                    Weblog
+                </a>
+            </li>
+            <li class="nav-item  my-1 text-center">
+                <a href="https://github.com/20Devs" class="nav-link text-dark" title="GitHub">
+                    GitHub
+                </a>
+            </li>
+            <li class="nav-item  my-1 text-center">
+                <a asp-page="/Home/About" class="nav-link text-dark" title="About me">
+                    About me
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="collapse navbar-collapse text-small " id="navbarNavDropdown">
+        <ul class="navbar-nav hover-line mr-auto">
+            <li class="nav-item px-1 ">
+                <a asp-page="/Home/Index" class="nav-link text-dark" title="Home">
+                    Home
+                </a>
+            </li>
+            <li class="nav-item px-1">
+                <a href="https://20devs.com" class="nav-link text-dark" title="Weblog">
+                    Weblog
+                </a>
+            </li>
+            <li class="nav-item px-1">
+                <a href="https://github.com/20Devs" class="nav-link text-dark" title="GitHub">
+                    GitHub
+                </a>
+            </li>
+            <li class="nav-item px-1">
+                <a asp-page="/Home/About" class="nav-link text-dark" title="Weblog">
+                    About me
+                </a>
+            </li>
+        </ul>
+    </div>
+
+</nav>
+
+</header>
+
+

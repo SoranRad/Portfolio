@@ -1,0 +1,74 @@
+{
+  "version": "1.0",
+  "defaultProvider": "cdnjs",
+  "libraries": [
+    {
+      "library": "jquery@3.6.1",
+      "destination": "wwwroot/lib/jquery/"
+    },
+    {
+      "library": "jquery-migrate@3.4.0",
+      "destination": "wwwroot/lib/jquery-migrate/"
+    },
+    {
+      "library": "bootstrap@5.2.1",
+      "destination": "wwwroot/lib/bootstrap/"
+    },
+    {
+      "library": "bootstrap-sweetalert@1.0.1",
+      "destination": "wwwroot/lib/bootstrap-sweetalert/"
+    },
+    {
+      "library": "bootstrap-tagsinput@0.8.0",
+      "destination": "wwwroot/lib/bootstrap-tagsinput/"
+    },
+    {
+      "library": "croppie@2.6.5",
+      "destination": "wwwroot/lib/croppie/"
+    },
+    {
+      "library": "font-awesome@6.2.0",
+      "destination": "wwwroot/lib/font-awesome/"
+    },
+    {
+      "library": "jquery-loading-overlay@2.1.7",
+      "destination": "wwwroot/lib/jquery-loading-overlay/"
+    },
+    {
+      "library": "jquery-validation-unobtrusive@4.0.0",
+      "destination": "wwwroot/lib/jquery-validation-unobtrusive/"
+    },
+    {
+      "library": "lightbox2@2.11.3",
+      "destination": "wwwroot/lib/lightbox2/"
+    },
+    {
+      "library": "plyr@3.7.2",
+      "destination": "wwwroot/lib/plyr/"
+    },
+    {
+      "library": "popper.js@2.11.6",
+      "destination": "wwwroot/lib/popper.js/"
+    },
+    {
+      "library": "quill@1.3.7",
+      "destination": "wwwroot/lib/quill/"
+    },
+    {
+      "library": "tippy.js@6.3.7",
+      "destination": "wwwroot/lib/tippy.js/"
+    },
+    {
+      "library": "toastr.js@2.1.4",
+      "destination": "wwwroot/lib/toastr.js/"
+    },
+    {
+      "library": "waypoints@4.0.1",
+      "destination": "wwwroot/lib/waypoints/"
+    },
+    {
+      "library": "jquery.ns-autogrow@1.1.6",
+      "destination": "wwwroot/lib/jquery.ns-autogrow/"
+    }
+  ]
+}

@@ -1,0 +1,84 @@
+﻿@page
+@model WebUI.Pages.Post.IndexModel
+@{
+}
+
+<div class="container-fluid">
+    <div class="row d-flex justify-content-center mt-0 mt-md-2 mt-lg-3 mt-xl-4">
+
+        <div class="col-lg-6 ">
+            
+                <!-----------------------Post Collection ------------------------------>
+
+                <div class="posts">
+
+                    <!-------------------Add New Post Button----------------------------->
+
+                    <div class="card rounded-pill shadow-sm mb-3  overflow-hidden">
+                        <div class="card-body p-2" style="background-color: #f1f1f1; -webkit-box-shadow: inset 0px 1px 10px 0px rgba(85, 85, 85, 0.2); box-shadow: inset 0px 1px 10px 0px rgba(85, 85, 85, 0.2); -webkit-transition: all 0.4s ease; -o-transition: all 0.4s ease;">
+                            <div class="row ">
+                                <div class="col-12 d-grid">
+                                    <a href="#" id="btn-new-post" class="btn btn-block btn-success rounded-pill text-white">
+                                        <i class="far fa-comment-dots"></i>
+                                        New Post
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-------------------Message Allert---------------------------------->
+
+                    <div class="alert alert-success text-small" role="alert">
+                        <h6 class="h6 text-bold alert-heading mb-2">
+                            <i class="fas fa-info-circle"></i>
+                            Please, Tale attention to the items when inserting new post.
+
+                            <button type="button" class="btn-close text-small float-end" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </h6>
+                        <ul >
+                            <li>
+                                Please, Tale attention to the items when inserting new post.
+                            </li>
+                            <li>
+                                Please, Tale attention to the items when inserting new post.
+                            </li>
+                            <li>
+                                Please, Tale attention to the items when inserting new post.
+                            </li>
+                            <li>
+                                Please, Tale attention to the items when inserting new post.
+                            </li>
+                        </ul>
+                        <hr>
+                        <p class="mb-0 text-small">
+                            Please, Tale attention to the items when inserting new post.
+                        </p>
+                    </div>
+
+                    <!--------------------New Post Form --------------------------------->
+                    
+                    @await Html.PartialAsync("_CreatePost")
+                    
+                    <!-------------------- Cropper Image -------------------------------->
+
+                    @await Html.PartialAsync("_ModalCropper")
+
+                </div>
+
+                <!-----------------------End  Collection ------------------------------>
+                <!-----------------------Link to waypoint to lazyload  Collection ------------------------------>
+                
+                <a asp-page="/posts/PagingLoad" asp-route-PageNo="1" class="next-page d-block text-center">
+
+                    <div class="spinner-border text-light-green" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                </a>
+                <!-----------------------Link to waypoint to lazyload   Collection ------------------------------>
+
+        </div>
+    </div>
+</div>
+
+

@@ -1,0 +1,23 @@
+﻿html,
+body {
+    height: 100%;
+    margin: 0
+}
+
+body {
+    display: -ms-flexbox;
+    display: flex;
+    margin: 0;
+    font-family: "Georgia" !important;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1.5rem;
+    background-color: #dde4e7;
+}
+
+main {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+}

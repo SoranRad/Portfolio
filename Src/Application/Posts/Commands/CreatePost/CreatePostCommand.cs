@@ -5,11 +5,19 @@ using System.Text;
 using System.Threading.Tasks;
 using Domain.SharedKernel;
 using MediatR;
+using Microsoft.AspNetCore.Http;
 
 namespace Application.Posts.Commands.CreatePost
 {
     public class CreatePostCommand : IRequest
     {
+        public string       Title               { get; set; }
+        public string       Content             { get; set; }
+        public bool         IsContentFirst      { get; set; }
+        public string       Tags                { get; set; }
+
+        public IFormFile    PictureFile         { get; set; }
+        public IFormFile    SoundFile           { get; set; }
     }
 
     public class CreatePostCommandHandler : AsyncRequestHandler<CreatePostCommand>
@@ -23,6 +31,9 @@ namespace Application.Posts.Commands.CreatePost
         protected async override Task Handle(CreatePostCommand request, CancellationToken cancellationToken)
         {
             
+
+
+
             return;
         }
     }

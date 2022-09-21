@@ -61,6 +61,15 @@ namespace Resources.Messages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Content of the post is empty..
+        /// </summary>
+        public static string EmptyPost {
+            get {
+                return ResourceManager.GetString("EmptyPost", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Your file type is not supported.
         /// </summary>
         public static string FileTypeNotSupported {
@@ -120,6 +129,15 @@ namespace Resources.Messages {
         public static string GreaterThanTo_FieldValue {
             get {
                 return ResourceManager.GetString("GreaterThanTo_FieldValue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Insert post title..
+        /// </summary>
+        public static string InsertTitle {
+            get {
+                return ResourceManager.GetString("InsertTitle", resourceCulture);
             }
         }
         
@@ -201,6 +219,15 @@ namespace Resources.Messages {
         public static string Required {
             get {
                 return ResourceManager.GetString("Required", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The content of the title is too long, Summarize it..
+        /// </summary>
+        public static string TooLength {
+            get {
+                return ResourceManager.GetString("TooLength", resourceCulture);
             }
         }
     }

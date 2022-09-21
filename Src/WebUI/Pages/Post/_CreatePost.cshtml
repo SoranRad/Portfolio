@@ -1,0 +1,126 @@
+﻿@using Application.Posts.Commands.CreatePost
+
+@{
+    var form = new CreatePostCommand();
+}
+
+<!--------------------- Begin Form ----------------------------->
+
+<div id="post-create" class="post-card card" >
+
+    <form asp-antiforgery="true"
+          asp-controller="post"
+          asp-action="Post"
+          data-ajax="true"
+          data-ajax-method  ="POST"
+          data-ajax-loading ="#spinner-create-post"
+          data-ajax-begin   ="postAjaxBegin"
+          data-ajax-complete="postAjaxComplete"
+          data-ajax-success ="postAjaxSuccess"
+          data-ajax-failure ="postAjaxFail"
+          class="post-form"
+          id="new-post"
+          enctype="multipart/form-data"
+          method="post"> 
+        <div class="card-body">
+            
+            <!--------------------- Hidden Fields ----------------------------->
+
+
+            <input type="file"      id="PictureFile2"       class="hidden-input image-input" accept="image/*" />
+            <input type="file"      asp-for="@form.PictureFile"     name="@nameof(form.PictureFile)"    class="hidden-input" />
+            <input type="file"      asp-for="@form.SoundFile"       name="@nameof(form.SoundFile)"      class="hidden-input sound-input" accept=".mp3,.mp2,.mpeg,.ogg,.wav" />
+            <input type="hidden"    asp-for="@form.IsContentFirst"  name="@nameof(form.IsContentFirst)" />
+            
+            
+            <!--------------------- Content Fields ----------------------------->
+
+
+            <input type="text"      asp-for="@form.Title"           name="@nameof(form.Title)"          placeholder="@Resources.Messages.Validations.InsertTitle" class="mt-0" style="margin: 14px 0;"/>
+            <span asp-validation-for="@form.Title" data-valmsg-for="@nameof(Model.Form.Title)"></span>
+
+            <div class="post-text">
+                <input type="hidden" asp-for="@form.Content" name="@nameof(form.Content)" />
+                <div class="content-editor">
+
+                </div>
+            </div>
+            
+            <!--------------------- Attachment Insert ----------------------------->
+
+           
+            <div class="post-media d-none ">
+                <button class="remove-attach btn btn-sm  btn-outline-danger rounded-circle" type="button" data-toggle="tooltip" data-placement="top" title="@Resources.Messages.Prompts.RemoveAttachments">
+                    <i class="far fa-trash-alt"></i>
+                </button>
+                <img src="" class="image-attached img-fluid rounded rounded-lg d-none" />
+                <div class="audio-attached d-none">
+                    <audio id="player" class="audio-player" controls>
+                    </audio>
+                </div>
+            </div>
+
+
+        </div>
+        
+        <!--------------------- Buttons footer ----------------------------->
+
+
+        <div class="card-footer">
+            
+            <!--------------------- Tags Inputs ----------------------------->
+
+            <div class="tag-section" style="display: none;">
+                <div class="col text-small">
+                    <div class="input-group input-group-sm">
+                        <input asp-for="@form.Tags" name="@nameof(form.Tags)" type="text" data-role="tagsinput"/>
+                        <button class="remove-tags btn btn-sm rounded-circle text-danger " type="button" data-toggle="tooltip" data-placement="top" title="حذف کلیه برچسب هـا">
+                            <i class="far fa-trash-alt"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!--------------------- Attachment buttons ----------------------------->
+
+
+            <div class="row d-flex justify-content-center justify-content-sm-between bg-silver rounded-pill ">
+                <div class="attach-row ">
+                    <a href="javascript:void(0)" class="btn btn-sm btn-attach-image" data-toggle="tooltip" data-placement="top" title="افزودن تصویر">
+                        <i class="far fa-image"></i>
+                    </a>
+                    <a href="javascript:void(0)" class="btn btn-sm mr-2  btn-attach-sound" data-toggle="tooltip" data-placement="top" title="افزودن فایل صوتی">
+                        <i class="fas fa-volume-up"></i>
+                    </a>
+                   
+                    <a href="javascript:void(0)" class="btn-tag  btn btn-sm  mr-2" data-toggle="tooltip" data-placement="top" title="افزودن هشتگ">
+                        <i class="fas fa-hashtag "></i>
+                    </a>
+                </div>
+                <div class="btn-form">
+                    <button type="submit" class="btn btn-sm btn-outline-success rounded-pill px-3 py-0 my-1" data-toggle="tooltip" data-placement="top" title="ثبت">
+                        <i class="fas fa-check p-0"></i>
+                        <spinner asp-id="spinner-create-post"></spinner>
+                    </button>
+                    <button type="button" class="btn btn-sm btn-outline-danger rounded-pill px-3 py-0 my-1 mx-2" data-toggle="tooltip" data-placement="top" title="ثبت پست جدید">
+                        <i class="fas fa-times p-0 mt-1"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!--------------------- Validation Erroes ----------------------------->
+
+            <div class=" row d-flex justify-content-center mt-1">
+
+                <div class="validation-errors alert d-none w-100">
+
+                </div>
+
+            </div>
+            
+            <!--------------------------------------------------------------------->
+            
+
+        </div>
+    </form>
+</div>

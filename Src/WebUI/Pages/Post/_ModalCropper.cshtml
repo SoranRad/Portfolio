@@ -1,0 +1,41 @@
+﻿<div class="modal fade " data-backdrop="static" data-keyboard="false" id="cropper-modal" tabindex="-1" aria-labelledby="cropper-modal" aria-hidden="true">
+    <div class="modal-dialog  modal-lg modal-dialog-centered ">
+        <div class="modal-content">
+            
+            
+
+            <div class="modal-header flex-row justify-content-around py-1 px-0 border-0">
+                <a href="javascript:void(0)" class="btn btn-light active btn-sm btn-zoomin" data-toggle="tooltip" data-placement="top" title="بزرگ نمایی">
+                    <i class="fas fa-search-plus"></i>
+                </a>
+                <a href="javascript:void(0)" class="btn btn-light active btn-sm btn-zoomout" data-toggle="tooltip" data-placement="top" title="کوچک نمایی">
+                    <i class="fas fa-search-minus"></i>
+                </a>
+                <a href="javascript:void(0)" class="btn btn-light active btn-sm btn-rotate-left" data-toggle="tooltip" data-placement="top" title="چرخش به چپ">
+                    <i class="fas fa-undo"></i>
+                </a>
+                <a href="javascript:void(0)" class="btn btn-sm btn-light active btn-rotate-right" data-toggle="tooltip" data-placement="top" title="چرخش به راست">
+                    <i class="fas fa-undo fa-flip-horizontal"></i>
+                </a>
+            </div>
+            <div class="modal-body py-1 " style="overflow-x: scroll">
+                <div class="row d-flex justify-content-center">
+                    <div class="col-12">
+                        <img class="img-fluid img-thumbnail" id="cropper-image"/>
+                    </div>
+                </div>
+
+            </div>
+            <div class="modal-footer  p-1 justify-content-between">
+                <button type="button" id="cropper-ok" class="btn btn-sm btn-success">
+                    @Resources.Messages.Buttons.Crop
+                    <i class="fas fa-crop-alt"></i>
+                </button>
+
+                <button type="button" id="cropper-cancel" class="btn btn-sm btn-danger">
+                    @Resources.Messages.Buttons.Cancel
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -56,6 +56,10 @@ namespace WebUI
                     opts.JsonSerializerOptions.PropertyNamingPolicy         = JsonNamingPolicy.CamelCase;
                     opts.JsonSerializerOptions.PropertyNameCaseInsensitive  = false;
                 })
+                .AddRazorPagesOptions(opt =>
+                {
+                    opt.Conventions.AddPageRoute("/Home/Index", "");
+                })
                 .AddSessionStateTempDataProvider()
                 ;
 

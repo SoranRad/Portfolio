@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="EmptyPost" xml:space="preserve">
+    <value>Content of the post is empty.</value>
+  </data>
   <data name="FileTypeNotSupported" xml:space="preserve">
     <value>Your file type is not supported</value>
   </data>
@@ -137,6 +140,9 @@
   </data>
   <data name="GreaterThan_TwoFields" xml:space="preserve">
     <value>The value of field {0} must be greater than the value of field {1}!</value>
+  </data>
+  <data name="InsertTitle" xml:space="preserve">
+    <value>Insert post title.</value>
   </data>
   <data name="InvalidCode" xml:space="preserve">
     <value>Code {0} is not correct!</value>
@@ -164,5 +170,8 @@
   </data>
   <data name="Required" xml:space="preserve">
     <value>Completion of {0} is required!</value>
+  </data>
+  <data name="TooLength" xml:space="preserve">
+    <value>The content of the title is too long, Summarize it.</value>
   </data>
 </root>

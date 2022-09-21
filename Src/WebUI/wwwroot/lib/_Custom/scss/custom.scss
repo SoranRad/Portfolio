@@ -1,0 +1,56 @@
+﻿
+$body-bg: #eee ;
+
+$enable-responsive-font-sizes: true;
+$rfs-base-font-size: 1rem;
+$enable-caret: false;
+
+$enable-shadows: true;
+$enable-gradients :true;
+
+$theme-colors: ( 
+     "primary":    #0d6efd,
+     "secondary":  #6c757d,
+     "success":    #36bea6,
+     "info":        #0dcaf0,
+     "warning":    #ffc107,
+     "danger":     #dc3545,
+     "light":      #f8f9fa,
+     "dark":       #212529,
+    "light-blue":   #00a6eb, 
+    "light-purple": #7460ee, 
+    "light-red":    #f62d51, 
+    "light-yellow": #ffbc34, 
+    "light-green":  #0aaaa0, 
+    "light-teal":   #20c997, 
+    "light-cyan":   #0aaac0, 
+    "light-orange": #e8505b,
+    "light-maroon": #8f2d56,
+    "silver":       #C0C0C0,
+    );
+
+
+
+$grid-breakpoints: (
+  xs: 0,
+  sn: 320px,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px
+) !default;
+
+$container-max-widths: (
+  sn: 320px,
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px,
+  xxl: 1320px
+) !default;
+
+$font-family-sans-serif: "Georgia", "Tahoma", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
+$font-family-monospace: "Georgia", "Tahoma", SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !default;
+
+

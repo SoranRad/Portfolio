@@ -1,0 +1,8 @@
+﻿
+@font-face {
+	font-family: IRANSans;
+	font-style: normal;
+	font-weight: 900;
+	src: url('../fonts/Georgia.ttf');
+	src: url('../fonts/Georgia.ttf') format('truetype');
+}

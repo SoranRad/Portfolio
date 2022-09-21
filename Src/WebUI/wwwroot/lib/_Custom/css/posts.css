@@ -1,0 +1,298 @@
+﻿.post-card {
+    margin-bottom: 10px;
+    position: relative;
+    font-size: 0.8rem;
+}
+
+    .post-card .post-form {
+        position: relative;
+    }
+
+        .post-card .post-form .card-body {
+            padding: 10px;
+        }
+
+
+
+        .post-card .post-form .post-media {
+            position: relative;
+            display: -ms-flexbox;
+            display: flex;
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 5px;
+            min-height: 5px;
+        }
+
+            .post-card .post-form .post-media .remove-attach {
+                top: 5px;
+                left: 0;
+                position: absolute;
+            }
+
+        .post-card .post-form .card-footer {
+            border: none !important;
+            padding-bottom: 8px;
+            padding-top: 8px;
+            background-color: transparent;
+        }
+
+            .post-card .post-form .card-footer .tag-section {
+                display: -ms-flexbox;
+                display: flex;
+                -ms-flex-wrap: wrap;
+                flex-wrap: wrap;
+                margin-right: -5px;
+                margin-left: -5px;
+                background-color: #e2e2e2;
+                padding-bottom: 4px;
+                padding-top: 4px;
+                margin-bottom: 8px;
+                margin-top: 8px;
+                border-radius: 50rem !important;
+                padding-left: 12px;
+                padding-right: 10px;
+            }
+
+        .post-card .post-form .post-text {
+            border: none !important;
+            position: relative;
+            height: auto;
+            min-height: 100px;
+        }
+
+        .post-card .post-form .card-body .post-text .post-text-count {
+            position: absolute;
+            top: 0;
+            left: 0;
+            color: var(--gray);
+            font-size: small;
+        }
+
+        .post-card .post-form .card-body textarea[name="Content"],
+        .post-card .post-form .card-body input[name="Title"] {
+            /*margin-top: 8px;*/
+            border: none;
+            outline: none;
+            resize: none;
+            width: 100%;
+            overflow: hidden
+        }
+
+            .post-card .post-form .card-body textarea[name="Content"]:focus,
+            .post-card .post-form .card-body input[name="Title"]:focus {
+                border: none;
+                outline: none;
+                resize: none;
+            }
+
+.tag-section .remove-tags {
+    color: var(--danger);
+}
+
+.card-footer a i {
+    padding-top: 4px;
+}
+
+.post-card .post-form .card-footer .attach-row {
+    position: relative;
+    display: -ms-flexbox !important;
+    display: flex !important;
+    background-color: #cacaca !important;
+    padding-left: 8px !important;
+    padding-right: 8px !important;
+    border-radius: 50rem !important;
+    width: auto;
+}
+
+.post-item .pipe-sparator {
+    margin: 0 3px;
+    color: mediumvioletred;
+}
+
+.post-item .category-post-title {
+    color: var(--success);
+    font-size: small;
+}
+
+.attach-row a {
+    position: relative;
+    margin-right: 7px;
+    margin-left: 7px;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+.post-card .post-form .card-footer .btn-form {
+     
+    margin-top: 0;
+    display: -ms-flexbox !important;
+    display: flex !important;
+    width: auto;
+}
+
+.btn-form button {
+}
+
+    .btn-form button i {
+        padding: 0 !important
+    }
+
+@media only screen and (max-width: 371px) {
+    .post-card .post-form .card-footer .btn-form {
+        margin-right: 0 !important;
+        margin-top: 5px;
+    }
+}
+
+.h_iframe-aparat_embed_frame {
+    position: relative;
+}
+
+    .h_iframe-aparat_embed_frame .ratio {
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+
+    .h_iframe-aparat_embed_frame iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: 2px solid #47e640;
+        border-radius: 5px;
+    }
+
+.post-item blockquote {
+    border-right: 6px solid silver;
+    padding: 0 8px 0 0;
+    margin: 5px;
+}
+
+.post-view .post-menu .dropdown-submenu {
+    position: relative;
+}
+
+    .post-view .post-menu .dropdown-submenu a::after {
+        transform: rotate(-90deg);
+        position: absolute;
+        right: 6px;
+        top: .8em;
+    }
+
+    .post-view .post-menu .dropdown-submenu .dropdown-menu {
+        top: 0;
+        left: 100%;
+        margin-left: .1rem;
+        margin-right: .1rem;
+    }
+
+.show-likes, .show-comment span {
+    font-weight: 300;
+    cursor: pointer;
+    font-size: 12.5px;
+}
+
+.post-item .card-footer .likes .user-like {
+    max-width: 65px;
+    max-width: 65px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+}
+
+.post-item .card-footer .likes .user-like {
+    max-width: 65px;
+    max-width: 65px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+}
+
+    .post-item .card-footer .likes .user-like .user-like-img {
+        border-radius: 50% !important;
+    }
+
+    .post-item .card-footer .likes .user-like .figure-caption {
+        border-radius: 50% !important;
+        text-align: center;
+        font-size: small;
+        text-wrap: normal;
+    }
+
+.post-item .card-footer .likes .load-more-like,
+.post-item .card-footer .comments .load-more-comments {
+    text-decoration: none;
+    display: block;
+    position: relative;
+    color: var(--bs-light-green);
+    font-size: small;
+    text-align: center;
+    transition: all 1s;
+    z-index: 0;
+    padding: 2px;
+}
+
+    .post-item .card-footer .likes .load-more-like::after,
+    .post-item .card-footer .comments .load-more-comments::after {
+        content: '';
+        width: 0%;
+        position: absolute;
+        top: 0%;
+        left: 50%;
+        height: 100%;
+        background: lightgray;
+        transform: translateX(-50%);
+        transition: width .5s ease;
+        z-index: -1;
+        border-radius: 3px;
+    }
+
+    .post-item .card-footer .likes .load-more-like:hover::after,
+    .post-item .card-footer .comments .load-more-comments:hover::after {
+        width: 100%;
+    }
+
+.post-item .card-footer .comments .comment-action:hover {
+    color: white !important;
+}
+
+.comment-item .comment-time {
+    display: block;
+    margin-top: 5px;
+}
+
+#btn-area {
+    background-color: #e2e2e2 !important;
+    padding: 6px 8px;
+    margin: 10px 0.25rem;
+    -ms-flex-pack: start !important;
+    justify-content: flex-start !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+    border-radius: 50rem !important;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+
+    #btn-area #btn-back {
+        border-radius: 50rem !important;
+    }
+
+.tag-section .bootstrap-tagsinput {
+    flex: 1 1 auto !important;
+}
+
+.bootstrap-tagsinput input {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+}

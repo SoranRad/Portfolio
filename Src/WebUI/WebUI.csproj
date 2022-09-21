@@ -4,8 +4,8 @@
     <TargetFramework>net6.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <AssemblyVersion>1.0.4.0</AssemblyVersion>
-    <FileVersion>1.0.4.0</FileVersion>
+    <AssemblyVersion>1.0.19.0</AssemblyVersion>
+    <FileVersion>1.0.19.0</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -16,8 +16,6 @@
     <Folder Include="Services\" />
     <Folder Include="wwwroot\dist\css\" />
     <Folder Include="wwwroot\dist\js\" />
-    <Folder Include="wwwroot\dist\image\" />
-    <Folder Include="wwwroot\lib\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -26,6 +24,13 @@
     <PackageReference Include="WebMarkupMin.AspNet.Brotli" Version="2.12.0" />
     <PackageReference Include="WebMarkupMin.AspNetCore6" Version="2.12.0" />
     <PackageReference Include="WebMarkupMin.NUglify" Version="2.12.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="wwwroot\lib\_Custom\fonts\Georgia.ttf">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
   </ItemGroup>
 
 </Project>
