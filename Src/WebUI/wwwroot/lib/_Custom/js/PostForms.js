@@ -10,7 +10,6 @@ function postAjaxBegin          (xhr) {
 
     } catch (e) {
         console.log(e);
-
     } 
 };
 
@@ -18,7 +17,7 @@ function postAjaxComplete       (xhr, status) {
     try {
         
     } catch (e) {
-        Sentry.captureException(e);
+       console.log(e);
     } 
 };
 function postAjaxSuccess        (data, status, xhr) {
@@ -28,13 +27,16 @@ function postAjaxSuccess        (data, status, xhr) {
             postResponseSuccess(data, $(this));
 
             $(this).trigger("reset");
+            var media = $('.post-media', this);
+            $(media).addClass('d-none');
+
             ResetpostsContainer();
         }
          else 
             postResponseError(data,$(this));
 
     } catch (e) {
-        Sentry.captureException(e);
+       console.log(e);
     } 
     
 }; 
@@ -47,7 +49,7 @@ function postAjaxFail           (xhr, status, error) {
             ShowErrorBox("Error in connecting to server");
 
     } catch (e) {
-        Sentry.captureException(e);
+       console.log(e);
     } 
 };
 
@@ -62,7 +64,7 @@ function postAjaxUpdateSuccess  (data, status, xhr) {
             postResponseError(data, $(this));
 
     } catch (e) {
-        Sentry.captureException(e);
+       console.log(e);
     } 
 };
 
@@ -76,7 +78,7 @@ function ShowpostSuccess        (data) {
 
         $('.validation-errors').append('<span><i class="fas fa-check-circle mx-2"></i>'+data.Message+'</span>');
     } catch (e) {
-        Sentry.captureException(e);
+       console.log(e);
     } 
 };
 function ShowpostErrors         (data) {
@@ -105,7 +107,7 @@ function ShowpostErrors         (data) {
         } 
 
     } catch (e) {
-        Sentry.captureException(e);
+       console.log(e);
     } 
 
 };
@@ -114,7 +116,7 @@ function GotopostErrors         () {
         window.scrollTo(0,0);
         $('.validation-errors').removeClass('d-none');
     } catch (e) {
-        Sentry.captureException(e);
+       console.log(e);
     } 
 
 };
@@ -127,6 +129,7 @@ function postResponseSuccess    (data,form) {
 
     $(validationBox).addClass('alert-success');
     $(validationBox).removeClass('alert-danger');
+     
     $(validationBox).append('<span><i class="fas fa-check-circle mx-2"></i>'+data.Message+'</span>');
 
 };
@@ -162,4 +165,20 @@ function ResetResponseBox       (form) {
     $([document.documentElement, document.body]).animate({
         scrollTop : $(validationBox).offset().top - 250
     }, 1000);
+};
+
+function ResetArticlesContainer () {
+    try {
+        var nextPage = $('a.next-page').get(0);
+        var href = $(nextPage).attr('href');
+        var LastSlashIndex = href.lastIndexOf("/");
+        var newhref = href.substr(1, LastSlashIndex) + "1";
+        $(nextPage).attr('href', newhref);
+        $('.posts .post-item').remove();
+
+        Waypoint.refreshAll();
+
+    } catch (e) {
+       console.log(e);
+    }
 };

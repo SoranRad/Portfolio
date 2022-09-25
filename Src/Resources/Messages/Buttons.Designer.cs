@@ -61,6 +61,33 @@ namespace Resources.Messages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add Image.
+        /// </summary>
+        public static string AddImage {
+            get {
+                return ResourceManager.GetString("AddImage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add Sound File.
+        /// </summary>
+        public static string AddSoundFile {
+            get {
+                return ResourceManager.GetString("AddSoundFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add Tags.
+        /// </summary>
+        public static string AddTags {
+            get {
+                return ResourceManager.GetString("AddTags", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Cancel.
         /// </summary>
         public static string Cancel {
@@ -84,6 +111,24 @@ namespace Resources.Messages {
         public static string OK {
             get {
                 return ResourceManager.GetString("OK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Remove All Tags.
+        /// </summary>
+        public static string RemoveTags {
+            get {
+                return ResourceManager.GetString("RemoveTags", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reset Form.
+        /// </summary>
+        public static string ResetForm {
+            get {
+                return ResourceManager.GetString("ResetForm", resourceCulture);
             }
         }
     }

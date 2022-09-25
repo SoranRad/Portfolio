@@ -10,13 +10,13 @@ namespace Domain.SeedWork
         public bool IsDisable { get; set; }
 
     }
-    public interface IEntity<T> : IEntity
+
+    public interface        IEntity<T> : IEntity
     {
         new T Id { get; set; }
     }
 
-
-	public abstract class Entity<T> : IEntity<T>
+	public abstract class   Entity<T> : IEntity<T>
 	{
 		#region Static Member(s)
 		public static bool operator ==(Entity<T> leftObject, Entity<T> rightObject)

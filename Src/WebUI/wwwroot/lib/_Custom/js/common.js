@@ -6,19 +6,17 @@ var Common = {
         InitPlayer      ();
         InputAutoHeight();
         ShowUpButton();
-        InitValidation();
+        //InitValidation();
 
     },
 };
 function InitValidation     () {
 
-    $.validator.setDefaults({
-        // This will ignore all hidden elements alongside `contenteditable` elements
-        // that have no `name` attribute
+    jQuery.validator.setDefaults({
+        
         ignore: ":hidden"
     });
-    //$.validator.setDefaults({ ignore: [] });
-    //$('#charity-pay').validate({ignore: []});
+    
 };
 function ChangePic          () {
     if (!$('.FilePic').length)

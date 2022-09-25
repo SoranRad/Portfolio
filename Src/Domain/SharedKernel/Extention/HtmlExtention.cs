@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using HtmlAgilityPack;
 
-namespace Application.Common.Extention
+namespace Domain.SharedKernel.Extention
 {
     public static class HtmlExtention
     {

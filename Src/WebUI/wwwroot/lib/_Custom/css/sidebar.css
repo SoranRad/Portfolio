@@ -1,0 +1,38 @@
+﻿/*#offcanvasRight {
+    background: rgb(0,237,183);
+    background: linear-gradient( 332deg, rgb(186 245 231) 14%, rgb(235 253 246) 73%);
+    padding-bottom: 50px;
+}*/
+
+#main-menu-mobile .nav-link{
+    width:70%;
+}
+
+    #main-menu-mobile .has-submenu .submenu-toggle:before {
+        float: left;
+        vertical-align: 0.05em !important;
+        display: inline-block;
+        font-family: 'Font Awesome 5 Free';
+        content: "\f107";
+        font-weight: 900; 
+        color: var(--bs-light-green);
+    }
+#main-menu-mobile .has-submenu .submenu-toggle.expanded:before {
+    content: "\f107" !important;
+}
+#main-menu-mobile .has-submenu .submenu-toggle.expanded ~ .side-submenu {
+    display: block;
+}
+#main-menu-mobile .side-submenu {
+    display: none;
+    list-style: none;
+    padding: 5px 20px 5px 0;
+}
+
+#main-menu-mobile .side-submenu li {
+    margin: 15px 0;
+}
+#main-menu-mobile .side-submenu li a{
+    color: black;
+    text-decoration: none;
+}

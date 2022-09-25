@@ -23,9 +23,10 @@ namespace Application.Posts.Commands.CreatePost
                 .WithMessage(string.Format(Resources.Messages.Validations.TooLength, Resources.DataDictionary.Title))
                 ;
 
-            RuleFor(x => x.Content)
-                .MaximumLength(15000)
-                .WithMessage(string.Format(Resources.Messages.Validations.TooLength, Resources.DataDictionary.Content))
+            //RuleFor(x => x.Content)
+                //.SetValidator(new CheckEmptyPostValidator<CreatePostCommand, string>(""))
+                //.MaximumLength(15000)
+                //.WithMessage(string.Format(Resources.Messages.Validations.TooLength, Resources.DataDictionary.Content))
                 ;
 
             RuleFor(x => x.Tags)

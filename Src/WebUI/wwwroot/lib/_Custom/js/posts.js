@@ -6,6 +6,10 @@
         if (!$('#post-create').length)
             return;
 
+        //$('#new-post').validate({
+        //    ignore: ".ignore"
+        //});
+
         PostButtonActions();
         InitEditor($('#new-post'));
     },
@@ -32,7 +36,7 @@ function PostButtonActions      () {
             }, 2000);
             return false;
         } catch (e) {
-            Sentry.captureException(e);
+            console.log(e);
         }
 
     });
@@ -46,7 +50,7 @@ function PostButtonActions      () {
     //        }, 2000);
     //        return false;
     //    } catch (e) {
-    //        Sentry.captureException(e);
+    //        console.log(e);
     //    }
 
     //});
@@ -60,7 +64,7 @@ function PostButtonActions      () {
     //        $(commentSection).toggle();
     //        return false;
     //    } catch (e) {
-    //        Sentry.captureException(e);
+    //        console.log(e);
     //    }
 
     //});
@@ -72,7 +76,7 @@ function PostButtonActions      () {
     //        $(likeSection).toggle();
     //        return false;
     //    } catch (e) {
-    //        Sentry.captureException(e);
+    //        console.log(e);
     //    }
     //});
 
@@ -92,7 +96,7 @@ function TagButtonsClick        () {
                 return false;
 
             } catch (e) {
-                Sentry.captureException(e);
+                console.log(e);
             }
         });
     $(".posts").on(
@@ -104,7 +108,7 @@ function TagButtonsClick        () {
                 var inputTag = $(this).prev();
                 $(inputTag).tagsinput('removeAll');
             } catch (e) {
-                Sentry.captureException(e);
+                console.log(e);
             }
         });
 };
@@ -161,7 +165,7 @@ function SetMediaPosition       ($this) {
         $(postMedia).removeClass('d-none');
 
     } catch (e) {
-        Sentry.captureException(e);
+        console.log(e);
     }
 };
 function SetMediaPreview        (kind, form) {
@@ -189,7 +193,7 @@ function SetMediaPreview        (kind, form) {
                 break;
         }
     } catch (e) {
-        Sentry.captureException(e);
+        console.log(e);
     }
 
 };
@@ -209,7 +213,7 @@ function RemovepostMedia        ($this) {
             $(FileDeleted).attr("value", "True");
 
     } catch (e) {
-        Sentry.captureException(e);
+        console.log(e);
     }
 };
 
@@ -252,7 +256,7 @@ function ClearMediaFiles        (kind, form) {
         }
 
     } catch (e) {
-        Sentry.captureException(e);
+        console.log(e);
     }
 
 };
@@ -316,7 +320,7 @@ function ClearMediaFileAndPreview(kind, form) {
 
 
     } catch (e) {
-        Sentry.captureException(e);
+        console.log(e);
     }
 
 
@@ -384,7 +388,7 @@ function ImageInputClick        () {
                     ;
             });
     } catch (e) {
-        Sentry.captureException(e);
+        console.log(e);
     }
 };
 function SoundInputClick        () {
@@ -404,9 +408,9 @@ function SoundInputClick        () {
                     ClearMediaFileAndPreview("soundFile", form);
                     return;
                 }
-                if (this.files[0].size > sound_Max_File_Size) {
-
-                    swal('حجم فایل نباید از 5 مگابایت بیشتر باشد');
+                if (this.files[0].size > Common.sound_Max_File_Size) {
+                     
+                    swal('Your file is too big');
                     ClearMediaFileAndPreview("soundFile", form);
                     return;
                 }
@@ -421,7 +425,7 @@ function SoundInputClick        () {
                 audio_player.play();
             });
     } catch (e) {
-        Sentry.captureException(e);
+        console.log(e);
     }
 };
 function VideoPreview           ($this) {
@@ -451,7 +455,7 @@ function VideoPreview           ($this) {
             $(alert).show();
         }
     } catch (e) {
-        Sentry.captureException(e);
+        console.log(e);
     }
 };
 function VideoLinkChange        () {
@@ -481,7 +485,7 @@ function ImageAttachClick       (e) {
         var imageInput = $(form).find('input#PictureFile2').get(0);
         $(imageInput).click();
     } catch (e) {
-        Sentry.captureException(e);
+        console.log(e);
     }
 };
 function SoundAttachClick       (e) {
@@ -491,7 +495,7 @@ function SoundAttachClick       (e) {
         var soundInput = $(form).find('input[name="SoundFile"]').get(0);
         $(soundInput).click();
     } catch (e) {
-        Sentry.captureException(e);
+        console.log(e);
     }
 };
 function VideoAttachClick       (e) {
@@ -503,7 +507,8 @@ function VideoAttachClick       (e) {
         SetMediaPreview("videoLink", form);
         SetMediaPosition($(this));
     } catch (e) {
-        Sentry.captureException(e);
+        console.log(e);
+        
     }
 };
 
@@ -522,14 +527,14 @@ function ResetForm              () {
 
         });
     } catch (e) {
-        Sentry.captureException(e);
+        console.log(e);
     }
 };
 function ShowForm               () {
     try {
 
     } catch (e) {
-        Sentry.captureException(e);
+        console.log(e);
     }
 };
 

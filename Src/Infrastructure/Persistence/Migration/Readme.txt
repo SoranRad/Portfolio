@@ -1,0 +1,1 @@
+﻿ add-migration xxx-name -o "./Persistence/Migration"

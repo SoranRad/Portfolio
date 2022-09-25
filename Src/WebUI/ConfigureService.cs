@@ -2,6 +2,7 @@
 using System.Text.Json;
 using Autofac;
 using Microsoft.AspNetCore.HttpOverrides;
+using Microsoft.Extensions.Options;
 using WebUI.Configuration;
 using static System.Net.Mime.MediaTypeNames;
 
@@ -52,8 +53,8 @@ namespace WebUI
                 .AddRazorPages() 
                 .AddRazorRuntimeCompilation()
                 .AddJsonOptions(opts =>
-                {
-                    opts.JsonSerializerOptions.PropertyNamingPolicy         = JsonNamingPolicy.CamelCase;
+                { 
+                    opts.JsonSerializerOptions.PropertyNamingPolicy = null;
                     opts.JsonSerializerOptions.PropertyNameCaseInsensitive  = false;
                 })
                 .AddRazorPagesOptions(opt =>

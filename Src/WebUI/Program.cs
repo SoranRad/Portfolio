@@ -19,7 +19,7 @@ try
     builder.Services.AddInfrastructureServices  (builder.Configuration);
     builder.Services.AddApplicationServices     ();
 
-    // Scan Dependency
+     
     builder.Host.ConfigureAutofact(application, Infrastructure);
 
 

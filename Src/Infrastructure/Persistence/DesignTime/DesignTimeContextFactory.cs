@@ -16,7 +16,7 @@ namespace Infrastructure.Persistence.DesignTime
         {
             var optionsBuilder = new DbContextOptionsBuilder<PostContext>();
 
-            optionsBuilder.UseSqlServer(@"Server=.;Database=NzSmsService;User Id=nima;Password=123456;MultipleActiveResultSets=True;");
+            optionsBuilder.UseSqlServer(@"Server=.\sqlnegin;Database=NzPortfolio;User Id=sa;Password=123456;MultipleActiveResultSets=True;");
 
             return new PostContext(optionsBuilder.Options, null,new AuditableEntitySaveChangesInterceptor());
 

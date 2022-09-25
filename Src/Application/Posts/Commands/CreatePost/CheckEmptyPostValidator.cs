@@ -3,8 +3,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-using Application.Common.Extention;
+using System.Threading.Tasks; 
+using Domain.SharedKernel.Extention;
 using FluentValidation;
 
 namespace Application.Posts.Commands.CreatePost

@@ -9,7 +9,7 @@
 <div id="post-create" class="post-card card" >
 
     <form asp-antiforgery="true"
-          asp-controller="post"
+          asp-controller="Posts"
           asp-action="Post"
           data-ajax="true"
           data-ajax-method  ="POST"
@@ -37,10 +37,11 @@
 
 
             <input type="text"      asp-for="@form.Title"           name="@nameof(form.Title)"          placeholder="@Resources.Messages.Validations.InsertTitle" class="mt-0" style="margin: 14px 0;"/>
-            <span asp-validation-for="@form.Title" data-valmsg-for="@nameof(Model.Form.Title)"></span>
+            <span asp-validation-for="@form.Title"   class="text-small text-danger" data-valmsg-for="@nameof(Model.Form.Title)"></span>
+            <span asp-validation-for="@form.Content" class="text-small text-danger" data-valmsg-for="@nameof(Model.Form.Content)"></span>
 
             <div class="post-text">
-                <input type="hidden" asp-for="@form.Content" name="@nameof(form.Content)" />
+                <input type="hidden" asp-for="@form.Content" class="ignore" name="@nameof(form.Content)"  />
                 <div class="content-editor">
 
                 </div>
@@ -84,25 +85,39 @@
             <!--------------------- Attachment buttons ----------------------------->
 
 
-            <div class="row d-flex justify-content-center justify-content-sm-between bg-silver rounded-pill ">
+            <div class="row d-flex  justify-content-between bg-silver rounded-pill ">
                 <div class="attach-row ">
-                    <a href="javascript:void(0)" class="btn btn-sm btn-attach-image" data-toggle="tooltip" data-placement="top" title="افزودن تصویر">
+                    <a href="javascript:void(0)" class="btn btn-sm btn-attach-image" data-toggle="tooltip" data-placement="top" title="@Resources.Messages.Buttons.AddImage">
                         <i class="far fa-image"></i>
                     </a>
-                    <a href="javascript:void(0)" class="btn btn-sm mr-2  btn-attach-sound" data-toggle="tooltip" data-placement="top" title="افزودن فایل صوتی">
+                    <a href="javascript:void(0)" class="btn btn-sm mr-2  btn-attach-sound" data-toggle="tooltip" data-placement="top" title="@Resources.Messages.Buttons.AddSoundFile">
                         <i class="fas fa-volume-up"></i>
                     </a>
                    
-                    <a href="javascript:void(0)" class="btn-tag  btn btn-sm  mr-2" data-toggle="tooltip" data-placement="top" title="افزودن هشتگ">
-                        <i class="fas fa-hashtag "></i>
+                    <a href="javascript:void(0)" class="btn-tag  btn btn-sm  mr-2" data-toggle="tooltip" data-placement="top" title="@Resources.Messages.Buttons.AddTags">
+                        <i class="fas fa-hashtag"></i>
                     </a>
                 </div>
-                <div class="btn-form">
-                    <button type="submit" class="btn btn-sm btn-outline-success rounded-pill px-3 py-0 my-1" data-toggle="tooltip" data-placement="top" title="ثبت">
+                
+            <!--------------------- Submit buttons ----------------------------->
+
+
+            <div class="btn-form">
+                    <button type="submit" class="btn btn-sm btn-outline-success rounded-pill px-3 py-0 my-1" data-toggle="tooltip" data-placement="top" title="@Resources.Messages.Buttons.OK">
+
+                        <div 
+                            id="spinner-create-post" 
+                            class="spinner-border spinner-border-sm " 
+                            role="status"
+                            style="display: none;">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                        
                         <i class="fas fa-check p-0"></i>
-                        <spinner asp-id="spinner-create-post"></spinner>
+                        
+                        
                     </button>
-                    <button type="button" class="btn btn-sm btn-outline-danger rounded-pill px-3 py-0 my-1 mx-2" data-toggle="tooltip" data-placement="top" title="ثبت پست جدید">
+                    <button type="button" class="btn btn-sm btn-outline-danger rounded-pill px-3 py-0 my-1 mx-2" data-toggle="tooltip" data-placement="top" title="@Resources.Messages.Buttons.ResetForm">
                         <i class="fas fa-times p-0 mt-1"></i>
                     </button>
                 </div>
