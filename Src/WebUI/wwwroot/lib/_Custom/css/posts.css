@@ -296,3 +296,376 @@
     padding-top: 0 !important;
     padding-bottom: 0 !important;
 }
+
+
+
+/*----------------------------------------------------------------------------*/
+
+.post {
+    margin: 0 0 10px 0;
+    border-radius: 8px;
+}
+
+    .post .card-header {
+        background-color: transparent;
+        padding: 2px 8px;
+        border: none;
+        display: flex;
+        align-content: space-between;
+    }
+
+    .post .post-publisher {
+        text-decoration: none;
+        white-space: nowrap;
+        padding: 0.25rem !important;
+        margin-right: 0 !important;
+        display: block;
+        width: 100%;
+        line-height: 1;
+    }
+
+.post-publisher .post-publisher-img {
+    height: 50px;
+    width: 50px;
+    float: left;
+    border-radius: 50%;
+    margin-right: 10px;
+    border: 3px solid #dcf4ef;
+}
+
+.post-publisher .post-publisher-title {
+    color: var(--bs-dark);
+    font-weight: 500;
+    display: inline-block;
+    font-size: 16px !important;
+}
+
+.post-publisher .post-publisher-time {
+    display: block;
+    color: var(--bs-gray);
+    margin-top: 3px;
+    font-size: 11px !important;
+}
+
+.post .card-body {
+    padding-bottom: 5px;
+}
+
+.post .post-title, .post .post-title * {
+    text-decoration: none;
+    color: var(--bs-light-green);
+    font-weight: bold;
+    font-size: 17px;
+    display: block;
+}
+
+.post .spinner {
+    margin-right: 2px;
+}
+
+.post .post-tags {
+    display: -ms-flexbox !important;
+    display: flex !important;
+    -ms-flex-align: start !important;
+    align-items: flex-start !important;
+}
+
+    .post .post-tags a {
+        margin-left: 0.5rem !important;
+        text-decoration: none;
+        padding: 6px 7px;
+        color: #212529;
+        background-color: #f8f9fa;
+        display: inline-block;
+        padding: 0.25em 0.4em;
+        font-size: 75%;
+        font-weight: 700;
+        line-height: 1;
+        text-align: center;
+        white-space: nowrap;
+        vertical-align: baseline;
+        border-radius: 0.25rem;
+        transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    }
+
+.post .posts-btn-action {
+    background-color: #e2e2e2 !important;
+    padding-top: 0 !important;
+    padding-bottom: 0.12rem !important;
+    margin-left: 0.25rem !important;
+    margin-right: 0.25rem !important;
+    -ms-flex-pack: distribute !important;
+    justify-content: space-around !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+    border-radius: 50rem !important;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
+.post .card-footer {
+    padding: 5px;
+    background-color: transparent;
+    border: none;
+}
+
+.post .post-tags {
+    margin-top: 10px;
+    flex-wrap: wrap;
+}
+
+.post .an-image {
+    max-height: 300px;
+    padding: 0 !important;
+}
+
+h_iframe-aparat_embed_frame {
+    position: relative;
+}
+
+.h_iframe-aparat_embed_frame .ratio {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.h_iframe-aparat_embed_frame iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 2px solid #47e640;
+    border-radius: 5px;
+}
+
+.post-item blockquote {
+    border-right: 6px solid silver;
+    padding: 0 8px 0 0;
+    margin: 5px;
+}
+
+/*-------------------------------------   Like part styles    ------------------------------*/
+.show-likes, .show-comment span {
+    font-weight: 300;
+    cursor: pointer;
+    font-size: 12.5px;
+}
+
+.post .card-footer .likes .user-like {
+    max-width: 65px;
+    max-width: 65px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+}
+
+.post .card-footer .likes .user-like {
+    max-width: 65px;
+    max-width: 65px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+}
+
+    .post .card-footer .likes .user-like .user-like-img {
+        border-radius: 50% !important;
+    }
+
+    .post .card-footer .likes .user-like .figure-caption {
+        border-radius: 50% !important;
+        text-align: center;
+        font-size: small;
+        text-wrap: normal;
+    }
+
+.post .card-footer .likes .load-more-like,
+.post .card-footer .comments .load-more-comments {
+    text-decoration: none;
+    display: block;
+    position: relative;
+    color: var(--bs-light-green);
+    font-size: small;
+    text-align: center;
+    transition: all 1s;
+    z-index: 0;
+    padding: 2px;
+}
+
+    .post .card-footer .likes .load-more-like::after,
+    .post .card-footer .comments .load-more-comments::after {
+        content: '';
+        width: 0%;
+        position: absolute;
+        top: 0%;
+        left: 50%;
+        height: 100%;
+        background: lightgray;
+        transform: translateX(-50%);
+        transition: width .5s ease;
+        z-index: -1;
+        border-radius: 3px;
+    }
+
+    .post .card-footer .likes .load-more-like:hover::after,
+    .post .card-footer .comments .load-more-comments:hover::after {
+        width: 100%;
+    }
+
+/*------------------------  Comments  ------------------------*/
+.send-comment {
+    margin: 3px;
+    padding: 5px;
+    background-color: #eeeff1 !important;
+    border-radius: 8px;
+}
+
+.comments {
+}
+
+    .comments .comment-item {
+        margin: 5px 0;
+        background-color: #eeeff1 !important;
+        border-radius: 10px;
+        padding: 5px;
+        display: flex !important;
+    }
+
+.comment-item .comment-img {
+    flex-shrink: 0 !important;
+}
+
+    .comment-item .comment-img img {
+        height: auto;
+        width: 30px;
+        border-radius: 50% !important;
+        margin-right: 5px;
+    }
+
+.comment-item .comment-body {
+    margin-right: 1rem !important;
+    flex-grow: 1 !important;
+}
+
+    .comment-item .comment-body .comment-title {
+        font-size: 12px;
+    }
+
+        .comment-item .comment-body .comment-title span {
+            display: block;
+            color: grey;
+            font-size: smaller;
+            margin-top: 5px;
+        }
+
+    .comment-item .comment-body p {
+        font-size: 12px;
+        margin-right: -40px;
+        margin-bottom: 0;
+    }
+
+/*----------------------------------- Sending Commnets -------------------------------*/
+
+.comment-box-modal {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    width: 100%;
+    cursor: pointer;
+}
+
+    .comment-box-modal *:not(textarea) {
+        cursor: pointer;
+    }
+
+    .comment-box-modal .input-group-text {
+        padding: 0;
+        background-color: #fff !important;
+        border-left: 0;
+        border-bottom-left-radius: 0;
+        border-top-left-radius: 0;
+        padding-right: 2px;
+        align-items: start;
+    }
+
+        .comment-box-modal .input-group-text img {
+            width: 25px;
+        }
+
+    .comment-box-modal .comment-text {
+        margin-right: -1px;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        padding: 0.25rem 0.5rem;
+        font-size: 0.875rem;
+        position: relative;
+        flex: 1 1 auto;
+        width: 1%;
+        min-width: 0;
+        box-shadow: none !important;
+        border-right: 0 !important;
+        min-height: calc(1.5em + 0.5rem + 2px);
+        display: block;
+        font-weight: 400;
+        line-height: 1.5;
+        color: #212529;
+        background-color: #fff;
+        background-clip: padding-box;
+        border: 1px solid #ced4da;
+        appearance: none;
+        transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+        margin: 0;
+        outline: none !important;
+        resize: none;
+        overflow: hidden;
+        max-height: 120px !important;
+    }
+
+    .comment-box-modal .comment-button {
+        margin-right: -1px;
+        border-top-right-radius: 0 !important;
+        border-bottom-right-radius: 0 !important;
+        padding: 0.25rem 0.5rem;
+        font-size: 0.875rem;
+        border-radius: 0.2rem;
+        position: relative;
+        z-index: 2;
+        color: #fff !important;
+        background-color: #0aaaa0 !important;
+        background-image: var(--bs-gradient);
+        border-color: #0aaaa0;
+        box-shadow: inset 0 1px 0 rgb(255 255 255 / 15%), 0 1px 1px rgb(0 0 0 / 8%);
+        display: inline-block;
+        font-weight: 400;
+        line-height: 1.5;
+        text-align: center;
+        text-decoration: none;
+        vertical-align: middle;
+        user-select: none;
+        background-color: transparent;
+        border: 1px solid transparent;
+        transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+        min-width: 53px;
+    }
+
+.send-comment .validation-errors ul {
+    border-radius: 5px;
+    font-size: small;
+    margin: 5px 0;
+}
+
+.send-comment .validation-errors ul {
+    padding: 3px 5px;
+}
+
+
+

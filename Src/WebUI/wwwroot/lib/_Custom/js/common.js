@@ -70,7 +70,7 @@ function ReadImage          (file) {
 
 
     } catch (e) {
-        Sentry.captureException(e);
+         console.log(e);
     }
 
 }
@@ -114,7 +114,7 @@ function readURLByElement   (input, element) {
             element.attr('src', "");
 
     } catch (e) {
-        Sentry.captureException(e);
+         console.log(e);
     }
 };
 function isEmptyOrSpaces    (input) {
@@ -153,7 +153,7 @@ function ReadImage          (file) {
 
 
     } catch (e) {
-        Sentry.captureException(e);
+         console.log(e);
     }
 
 }
@@ -180,6 +180,6 @@ function ShowUpButton       () {
             });
     }
     catch (e) {
-        Sentry.captureException(e);
+        console.log(e);
     }
 };

@@ -1,5 +1,31 @@
-﻿@page
+﻿@page "{PageNo}"
 @model WebUI.Pages.Post.PagingModel
 @{
-
+    Layout = null;
 }
+
+
+@if (Model.Posts != null && Model.Posts.Any())
+{
+    foreach (var article in Model.Posts)
+    {
+        @await Component.InvokeAsync("PostCard",new { article })
+    }
+
+    <a
+        asp-page="/Post/Paging"
+        asp-route-PageNo="@(Model.PageNo + 1)"
+        class="next-page row d-flex justify-content-center">
+
+        <div class="spinner-border text-info" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </a>
+}
+else
+{
+    <div class="post-item">
+
+    </div>
+}
+

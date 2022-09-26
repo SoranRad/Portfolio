@@ -1,4 +1,5 @@
-﻿var Post = {
+﻿var infinite;
+var Post = {
 
     IsContentFirst: false,
     Init: function () {
@@ -6,12 +7,11 @@
         if (!$('#post-create').length)
             return;
 
-        //$('#new-post').validate({
-        //    ignore: ".ignore"
-        //});
-
+        
         PostButtonActions();
         InitEditor($('#new-post'));
+
+        SetuppostsLoading();
     },
 };
 
@@ -564,5 +564,37 @@ function InitEditor             (form) {
 
     $('.ql-bubble').addClass('ql-direction-rtl');
     $('.ql-editor').addClass('ql-direction-rtl');
+
+};
+
+function ResetpostsContainer() {
+    try {
+        var nextPage = $('a.next-page').get(0);
+        var href = $(nextPage).attr('href');
+        var LastSlashIndex = href.lastIndexOf("/");
+        var newhref = href.substr(1, LastSlashIndex) + "1";
+        $(nextPage).attr('href', newhref);
+        $('.posts .post-item').remove();
+
+        Waypoint.refreshAll();
+
+    } catch (e) {
+        console.log(e);
+    }
+};
+function SetuppostsLoading() {
+    try {
+        infinite = new Waypoint.Infinite({
+            element: $('.posts')[0],
+            items: '.post-item',
+            more: '.next-page',
+            onAfterPageLoad: function (e) {
+                var player = $(e).find('.audio-player');
+                const players = Array.from(player).map(p => new Plyr(p));
+            }
+        });
+    } catch (e) {
+        console.log(e);
+    }
 
 };

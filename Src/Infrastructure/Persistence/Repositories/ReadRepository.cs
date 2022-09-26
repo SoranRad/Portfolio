@@ -68,9 +68,13 @@ namespace Infrastructure.Persistence.Repositories
             )
             
         {
-            var query = _dbContext.Set<TEntity>().Where(predicate);
 
-            if (string.IsNullOrWhiteSpace(include))
+            var query = _dbContext.Set<TEntity>().AsQueryable();
+
+            if(predicate!=null)
+                query = _dbContext.Set<TEntity>().Where(predicate);
+
+            if (!string.IsNullOrWhiteSpace(include))
             {
                 foreach (var item in include.Split(","))
                     query = query.Include(item);

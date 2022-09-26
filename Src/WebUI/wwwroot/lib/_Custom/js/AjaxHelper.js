@@ -36,7 +36,7 @@ function AjaxFail           (xhr, status, error) {
     if (xhr.responseJSON) 
         ParseValidationErrors(xhr.responseJSON);
     else
-        ShowErrorBox("امکان ارتباط وجود ندارد");
+        ShowErrorBox("Couldn't connect to server");
 };
 function AjaxAlertFail      (xhr, status, error) {
     ShowErrorBox("Could not connect to server.");

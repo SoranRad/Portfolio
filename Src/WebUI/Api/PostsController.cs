@@ -1,4 +1,5 @@
 ﻿using Application.Posts.Commands.CreatePost;
+using Application.Posts.Queries;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using SharedKernel.Result;
@@ -14,12 +15,19 @@ namespace WebUI.Api
             _mediator = mediator;
         }
 
-        [HttpGet]
-        public async Task<Result> Get(CancellationToken cancellationToken)
-        {
-            return Result.Success("OK");
-        }
+        //[HttpGet]
+        //public async Task<Result> Get(CancellationToken cancellationToken)
+        //{
+        //    return Result.Success("OK");
+        //}
 
+        //[HttpGet("{page}")]
+        //public async Task<Result<IEnumerable<PagedPostDto>>> GetPage(int page, CancellationToken cancellationToken)
+        //{
+        //    var list = await _mediator.Send(new PagedPostQuery(page), cancellationToken);
+
+        //    return Result.Success(list);
+        //}
 
         [HttpPost]
         [ValidateAntiForgeryToken]

@@ -4,8 +4,8 @@
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <AssemblyVersion>1.0.20.0</AssemblyVersion>
-    <FileVersion>1.0.20.0</FileVersion>
+    <AssemblyVersion>1.0.23.0</AssemblyVersion>
+    <FileVersion>1.0.23.0</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -18,7 +18,6 @@
     <Folder Include="Common\Models\" />
     <Folder Include="Posts\Commands\DeletePost\" />
     <Folder Include="Posts\Commands\UpdatePost\" />
-    <Folder Include="Posts\Queries\" />
   </ItemGroup>
 
   <ItemGroup>

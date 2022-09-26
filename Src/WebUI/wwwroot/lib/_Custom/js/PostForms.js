@@ -167,18 +167,3 @@ function ResetResponseBox       (form) {
     }, 1000);
 };
 
-function ResetArticlesContainer () {
-    try {
-        var nextPage = $('a.next-page').get(0);
-        var href = $(nextPage).attr('href');
-        var LastSlashIndex = href.lastIndexOf("/");
-        var newhref = href.substr(1, LastSlashIndex) + "1";
-        $(nextPage).attr('href', newhref);
-        $('.posts .post-item').remove();
-
-        Waypoint.refreshAll();
-
-    } catch (e) {
-       console.log(e);
-    }
-};

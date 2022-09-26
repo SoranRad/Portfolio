@@ -11,6 +11,6 @@ namespace Application.Common.Interfaces
     public interface IAttachementSave
     {
         Task<Result> Save(Guid PostId, IFormFile FormFile);
-
+        string GetImageRootPath();
     }
 }

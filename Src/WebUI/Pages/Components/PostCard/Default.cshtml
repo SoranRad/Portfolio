@@ -1,0 +1,102 @@
+﻿@model  Application.Posts.Queries.PagedPostDto
+@inject IFileDetection      FileDetection 
+
+@{
+    var HasAttachment   = !string.IsNullOrWhiteSpace(Model.FileName);
+    var str             = new StringBuilder();
+    var shortId         = new ShortGuid(Model.Id).ToString();
+    var MediaContent    = string.Empty;
+
+    if (HasAttachment)
+    {
+        var Extention   = System.IO.Path.GetExtension(Model.FileName).Replace(".", "");
+        var IsImage     = FileDetection.IsImage(Extention);
+        var MediaUrl = $"{Context.Request.Scheme}://{Context.Request.Host}{Context.Request.PathBase}"
+                            + "/Image/Post/" + shortId +"/" + Model.FileName;
+
+        str.Append("<div class=\"row d-flex justify-content-center  my-2\">");
+        if (IsImage)
+        {
+            str.Append(
+                $"<a href=\"{MediaUrl}\" class=\"text-center\" data-lightbox=\"{shortId}\" data-title=\"{Model.Title}\" >"
+                + $"<img src=\"{MediaUrl}\" class=\"lazyload an-image img-fluid rounded rounded-lg\"/>"
+                + "</a>"
+            );
+        }
+        else
+        {
+            str.Append("<audio id=\"player\" class=\"audio-player\" controls=\"\">");
+            str.Append($"<source src=\"{MediaUrl}\" >");
+            str.Append("</audio>");
+        }
+        str.Append("</div>");
+
+        MediaContent = str.ToString();
+    }
+
+    var Content = Model.IsContentFirst
+
+        ? Model.Content + " " + MediaContent
+        : MediaContent + " " + Model.Content;
+}
+
+<div class="post card post-item" id="@Model.ShortId" >
+    <div class="card-header ">
+
+        <a class="post-publisher "
+           href="#">
+
+            <img class="post-publisher-img" src="@Url.Content("~/dist/images/Logo.png")" title="20devs.com" alt="20devs.com" />
+            <span class="post-publisher-title ">
+                20devs.com
+            </span>
+            <span class="post-publisher-time">
+                @Model.CreatedDate.ToShortDateString()
+            </span>
+
+        </a>
+    </div>
+    <div class="card-body">
+        <div>
+            <h2 class="post-title">
+                <a href="#" class="post-title-link" >
+                    @Model.Title
+                </a>
+            </h2>
+            <div class="ql-container ql-direction-rtl">
+                <div class="ql-editor ql-direction-rtl">
+                    @Html.Raw(Content)
+                </div>
+            </div>
+
+            @if (!string.IsNullOrWhiteSpace(Model.Tags))
+            {
+                var tags = Model.Tags.Split(",");
+                <div class="post-tags">
+                    @foreach (var tag in tags)
+                    {
+                        <a href="javascript:void(0)">
+                            #@tag
+                        </a>
+                    }
+                </div>
+            }
+        </div>
+    </div>
+    <div class="card-footer">
+        <div class="posts-btn-action">
+            <a href="#" class="btn btn-sm btn-ripple like">
+                <i class=" far fa-heart"></i>
+            </a>
+
+            <a href="#" class="show-comment btn btn-sm mr-2 btn-ripple">
+                <i class="far fa-comments"></i>
+            </a>
+
+            <a  href="#" class="show-share btn btn-sm mr-2 btn-ripple">
+                <i class="fas fa-share-alt"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>

@@ -10,18 +10,19 @@ namespace Domain.Aggregates.Posts
 
         public const short MAX_TITLE_LENGTH = 500;
 
+
         private Post   (string fileName)
         {
             FileName = fileName;
         }
 
-        public Post(string content, string title, bool isContentFirst, string tags, string fileName)
+        private Post(string content, string title, bool isContentFirst, string tags, string fileName)
         {
-            Content = content;
-            Title = title;
-            IsContentFirst = isContentFirst;
-            Tags = tags;
-            FileName = fileName;
+            Content             = content;
+            Title               = title;  
+            IsContentFirst      = isContentFirst;
+            Tags                = tags;
+            FileName            = fileName;
         }
 
 
@@ -33,6 +34,6 @@ namespace Domain.Aggregates.Posts
 
         public string               Tags                { get; private set; }
 
-        public string               FileName            { get; set; }
+        public string               FileName            { get; private set; }
     }
 }

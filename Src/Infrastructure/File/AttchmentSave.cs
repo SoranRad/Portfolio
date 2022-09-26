@@ -16,14 +16,11 @@ namespace Infrastructure.File
         public async Task<Result> Save(Guid PostId,IFormFile FormFile)
         {
             // Get Location To Save
-            var miniNumber = new ShortGuid(PostId).ToString();
-            var path = Path.Combine(
-                            Directory.GetCurrentDirectory(),
-                            "wwwroot",
-                            "image",
-                            "post",
-                            miniNumber
-                        );
+            var miniNumber  = new ShortGuid(PostId).ToString();
+            var path        = Path.Combine(
+                                   GetImageRootPath(),
+                                   miniNumber
+                               );
 
 
             if (!Directory.Exists(path))
@@ -45,5 +42,15 @@ namespace Infrastructure.File
 
             return Result.Success();
         }
+
+        public string GetImageRootPath()
+        {
+            return Path.Combine(
+                Directory.GetCurrentDirectory(),
+                "wwwroot",
+                "image",
+                "post");
+        }
+
     }
 }
