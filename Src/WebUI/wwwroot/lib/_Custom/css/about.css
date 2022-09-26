@@ -1,0 +1,28 @@
+﻿#about {
+
+}
+
+#about .card .card-body .card-title{
+
+}
+.tech-list {
+    list-style: none;
+    font-size: 1rem;
+    padding-left: 1rem;
+}
+    .tech-list li {
+        margin: 3px 0;
+    }
+        .tech-list li a {
+            list-style: none;
+            text-decoration: none;
+            display: block;
+            color: #219b47;
+            padding: 2px 4px;
+            border-radius: 3px;
+            transition: all .3s linear;
+        }
+            .tech-list li a:hover {
+                background: #219b47;
+                color: white;
+            }
