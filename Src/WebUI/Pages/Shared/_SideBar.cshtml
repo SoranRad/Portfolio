@@ -1,15 +1,57 @@
 ﻿
 <aside class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
     <div class="offcanvas-header p-2">
-
+        
         <button type="button"
-                class="btn-close text-danger "
-                style="margin-right: auto; margin-left: 0;"
+                class="btn-close text-small  "
+                style="margin-left: auto; margin-right: 0;"
                 data-bs-dismiss="offcanvas"
                 aria-label="Close">
+
         </button>
+        
     </div>
-    <div class="offcanvas-body py-0">
- 
+    <div class="offcanvas-body py-0 sidebar-wrapper">
+        
+        <div class="sidebar-header">
+            <div class="user-pic">
+                <img class="img-thumbnail img-fluid rounded-circle" src="@Url.Content("~/dist/images/vais.jpg")"
+                     alt="User picture">
+            </div>
+            <div class="user-info">
+                <span class="user-name text-success">
+                    Vais
+                    <strong>Sobhani</strong>
+                </span>
+                <span class="user-role">FullStack .Net Developer</span>
+            </div>
+        </div>
+        <hr/>
+        <div >
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                    <a asp-page="/Home/Index" class="nav-link text-dark" title="Home">
+                        Home
+                    </a>
+                </li>
+                <li class="list-group-item">
+                    <a href="https://20devs.com" class="nav-link text-dark" title="Weblog">
+                        Weblog
+                    </a>
+                </li>
+                <li class="list-group-item">
+                    <a href="https://github.com/20Devs" class="nav-link text-dark" title="GitHub">
+                        GitHub
+                    </a>
+                </li>
+                <li class="list-group-item">
+                    <a asp-page="/Home/About" class="nav-link text-dark" title="About me">
+                        About
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+
     </div>
 </aside>

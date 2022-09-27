@@ -1,5 +1,5 @@
 ﻿@inject IOptions<SiteSettings> SiteSettings
-<header class="main-header navbar navbar-expand-md    border-bottom  shadow-sm py-0" style="height: 60px">
+<header id="main-header" class="navbar navbar-expand-md    border-bottom  shadow-sm py-0" style="height: 60px">
 
 <!---------------------------------- Navbar Menu ----------------------------->
 
@@ -50,7 +50,7 @@
     <!---------------------------------- Navbar Menu Button Offcanvas ---------------------------->
 
 
-    <button class="font-size-12 btn btn-sm btn-light mx-2  d-lg-none"
+    <button class="font-size-12 btn btn-sm btn-light mx-2  d-md-none"
             type="button"
             style="padding-bottom: 1px; border: 2px solid #0aaaa0; color: #0aaaa0;"
             data-bs-toggle="offcanvas"
@@ -60,12 +60,10 @@
     </button>
 </nav>
 
-    <!---------------------------------- Offcanvas Menu ---------------------------->
-
-
-@await Html.PartialAsync("_SideBar")
 
 
 </header>
 
+<!---------------------------------- Offcanvas Menu ---------------------------->
+@await Html.PartialAsync("_SideBar")
 

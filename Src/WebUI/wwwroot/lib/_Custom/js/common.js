@@ -6,6 +6,7 @@ var Common = {
         InitPlayer      ();
         InputAutoHeight();
         ShowUpButton();
+        FixNavBarOnScroll();
         //InitValidation();
 
     },
@@ -182,4 +183,19 @@ function ShowUpButton       () {
     catch (e) {
         console.log(e);
     }
+};
+function FixNavBarOnScroll  () {
+ 
+    var wind = $(window);
+    wind.on("scroll", function () {
+
+        var bodyScroll = wind.scrollTop(),
+            navbar = $("#main-header");
+
+        if (bodyScroll > 180)
+            navbar.addClass("fixed-top");
+        else
+            navbar.removeClass("fixed-top");
+
+    });
 };
