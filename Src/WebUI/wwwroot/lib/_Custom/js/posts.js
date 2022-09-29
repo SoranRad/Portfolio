@@ -22,12 +22,14 @@ function PostButtonActions      () {
 
     ImageInputClick();
     SoundInputClick();
-    VideoLinkChange();
+  
 
     ResetForm();
 
     $('#btn-new-post').click(function (e) {
         try {
+            console.log('clickkck');
+            swal('error', 'Error in loading image', 'error');
             e.preventDefault();
             $('.post-card').hide();
             $('#post-create').slideDown("slow");
@@ -40,45 +42,6 @@ function PostButtonActions      () {
         }
 
     });
-    //$('#btn-new-camp').click(function (e) {
-    //    try {
-    //        e.preventDefault();
-    //        $('.post-card').hide();
-    //        $('#post-camp').slideDown("slow");
-    //        $([document.documentElement, document.body]).animate({
-    //            scrollTop: $('#post-camp').offset().top
-    //        }, 2000);
-    //        return false;
-    //    } catch (e) {
-    //        console.log(e);
-    //    }
-
-    //});
-
-
-    //$('.show-comment').click(function (e) {
-    //    try {
-    //        e.preventDefault();
-    //        var footer = $(this).parents('.card-footer').get(0);
-    //        var commentSection = $(footer).find('.comments').get(0);
-    //        $(commentSection).toggle();
-    //        return false;
-    //    } catch (e) {
-    //        console.log(e);
-    //    }
-
-    //});
-    //$('.show-likes').click(function (e) {
-    //    try {
-    //        e.preventDefault();
-    //        var footer = $(this).parents('.card-footer').get(0);
-    //        var likeSection = $(footer).find('.likes').get(0);
-    //        $(likeSection).toggle();
-    //        return false;
-    //    } catch (e) {
-    //        console.log(e);
-    //    }
-    //});
 
 };
 
@@ -99,6 +62,7 @@ function TagButtonsClick        () {
                 console.log(e);
             }
         });
+
     $(".posts").on(
         "click",
         ".post-card .post-form .card-footer .tag-section .remove-tags",
@@ -123,12 +87,6 @@ function AttachButtons          () {
         "click",
         ".post-card .post-form .card-footer .row .attach-row .btn-attach-sound",
         SoundAttachClick);
-
-    $(".posts").on(
-        "click",
-        ".post-card .post-form .card-footer .row .attach-row .btn-attach-video-link",
-        VideoAttachClick);
-
 
     $(".posts").on(
         "click",
@@ -186,11 +144,7 @@ function SetMediaPreview        (kind, form) {
                 $(soundPreview).removeClass('d-none');
                 $(videoLinkPreview).addClass('d-none');
                 break;
-            case "videoLink":
-                $(imagePreview).addClass('d-none');
-                $(soundPreview).addClass('d-none');
-                $(videoLinkPreview).removeClass('d-none');
-                break;
+        
         }
     } catch (e) {
         console.log(e);
@@ -222,7 +176,7 @@ function ClearMediaFiles        (kind, form) {
 
         var imageFile = $(form).find('input[name="PictureFile"]').get(0);
         var soundFile = $(form).find('input[name="SoundFile"]').get(0);
-        var videoLinkFile = $(form).find('input[name="VideoLink"]').get(0);
+         
         var FileDeleted = $(form).find('input[name="FileDeleted"]').get(0);
 
         if (FileDeleted)
@@ -240,12 +194,7 @@ function ClearMediaFiles        (kind, form) {
                 $(imageFile).val('');
                 $(videoLinkFile).val('');
                 break;
-            case "videoLink":
-
-                Cropper.CroppeBlob = null;
-                $(imageFile).val('');
-                $(soundFile).val('');
-                break;
+            
             case "All":
 
                 Cropper.CroppeBlob = null;
@@ -265,7 +214,7 @@ function ClearMediaFileAndPreview(kind, form) {
     try {
         var imagePreview = $(form).find('.image-attached').get(0);
         var soundPreview = $(form).find('.audio-attached').get(0);
-        var videoLinkPreview = $(form).find('.videoLink').get(0);
+        
         var postMedia = $(form).find('.post-media').get(0);
         var FileDeleted = $(form).find('input[name="FileDeleted"]').get(0);
 
@@ -286,13 +235,7 @@ function ClearMediaFileAndPreview(kind, form) {
                 $(soundFile).val('');
                 $(soundPreview).addClass('d-none');
 
-                break;
-            case "videoLink":
-                var videoLinkFile = $(form).find('input[name="VideoLink"]').get(0);
-
-                $(videoLinkFile).val('');
-                $(videoLinkPreview).addClass('d-none');
-                break;
+                break; 
 
             case "All":
                 //=================================
@@ -334,7 +277,7 @@ function NormalizeVideoURL      (str) {
 }
 
 function ImageInputClick        () {
-    try {
+  /*  try {*/
 
         $(".posts").on(
             "change",
@@ -383,13 +326,13 @@ function ImageInputClick        () {
                             });
                     })
                     .catch(function (e) {
-                        swal('خطا', 'خطا در نمایش تصویر', 'error');
+                        swal('error', 'Error in loading image', 'error');
                     })
                     ;
             });
-    } catch (e) {
-        console.log(e);
-    }
+    //} catch (e) {
+    //    console.log(e);
+    //}
 };
 function SoundInputClick        () {
     try {
@@ -428,54 +371,6 @@ function SoundInputClick        () {
         console.log(e);
     }
 };
-function VideoPreview           ($this) {
-    try {
-
-        var videoLink = $this.closest('.videoLink');
-        var iframeDiv = $(videoLink).find('.h_iframe-aparat_embed_frame').get(0);
-        var alert = $(videoLink).find('.alert').get(0);
-
-        var linkUrl = $this.val();
-        linkUrl = NormalizeVideoURL(linkUrl);
-        var searchPattern = new RegExp('^https://www.aparat.com/v/', 'i');
-        var isOK = searchPattern.test(linkUrl);
-
-        if (!isEmptyOrSpaces(linkUrl) && isOK) {
-
-            $(iframeDiv).show();
-            $(alert).hide();
-
-            var iframe = $(videoLink).find('iframe').get(0);
-            var linkParts = linkUrl.split('/');
-            var linkId = linkParts[linkParts.length - 1];
-            iframe.src = 'https://www.aparat.com/video/video/embed/videohash/' + linkId + '/vt/frame';
-
-        } else {
-            $(iframeDiv).hide();
-            $(alert).show();
-        }
-    } catch (e) {
-        console.log(e);
-    }
-};
-function VideoLinkChange        () {
-
-    $(".posts").on(
-        "input",
-        ".post-card .post-form .post-media .videoLink .videoLinkText",
-
-        function () {
-            VideoPreview($(this));
-        });
-
-    $(".posts").on(
-        "input propertychange paste",
-        ".post-card .post-form .post-media .videoLink .videoLinkText",
-        function () {
-            VideoPreview($(this));
-        });
-    
-};
 
 function ImageAttachClick       (e) {
     try {
@@ -498,19 +393,7 @@ function SoundAttachClick       (e) {
         console.log(e);
     }
 };
-function VideoAttachClick       (e) {
-    try {
-        e.preventDefault();
-        var form = $(this).closest('form');
 
-        ClearMediaFiles("videoLink", form);
-        SetMediaPreview("videoLink", form);
-        SetMediaPosition($(this));
-    } catch (e) {
-        console.log(e);
-        
-    }
-};
 
 function ResetForm              () {
 

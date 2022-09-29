@@ -34,41 +34,41 @@ namespace Application.Posts.Commands.CreatePost
         }
         public async Task<Result> Handle(CreatePostCommand request, CancellationToken cancellationToken)
         {
-            //================== Find Filename Attachment ================
-            var fileName = string.Empty;
+            ////================== Find Filename Attachment ================
+            //var fileName = string.Empty;
 
-            if (request.SoundFile == null && request.PictureFile == null)
-                fileName = null;
-            else if (request.SoundFile != null)
-                fileName = request.SoundFile.FileName;
-            else if (request.PictureFile != null)
-                fileName = request.PictureFile.FileName;
+            //if (request.SoundFile == null && request.PictureFile == null)
+            //    fileName = null;
+            //else if (request.SoundFile != null)
+            //    fileName = request.SoundFile.FileName;
+            //else if (request.PictureFile != null)
+            //    fileName = request.PictureFile.FileName;
 
-            //=================== Create New Post ===============
+            ////=================== Create New Post ===============
 
-            var result  = Post.Create
-                (
-                    Content         : request.Content, 
-                    Title           : request.Title,
-                    IsContentFirst  : request.IsContentFirst,
-                    Tags            : request.Tags,
-                    IsNullPicture   : request.PictureFile == null   || request.PictureFile.Length == 0,
-                    IsNullSound     : request.SoundFile == null     || request.SoundFile.Length == 0,
-                    FileName        : fileName
-                );
+            //var result  = Post.Create
+            //    (
+            //        Content         : request.Content, 
+            //        Title           : request.Title,
+            //        IsContentFirst  : request.IsContentFirst,
+            //        Tags            : request.Tags,
+            //        IsNullPicture   : request.PictureFile == null   || request.PictureFile.Length == 0,
+            //        IsNullSound     : request.SoundFile == null     || request.SoundFile.Length == 0,
+            //        FileName        : fileName
+            //    );
             
-            if (result.IsSuccess == false)
-                return result;
+            //if (result.IsSuccess == false)
+            //    return result;
 
-            //=================== Add And Save ===============
+            ////=================== Add And Save ===============
 
-            _repository.Add(result.Value);
-            await _repository.SaveChangesAsync();
+            //_repository.Add(result.Value);
+            //await _repository.SaveChangesAsync();
 
-            //=================== Save Attachment File ===============
+            ////=================== Save Attachment File ===============
 
-            if (request.PictureFile != null || request.SoundFile != null)
-                await _attachementSave.Save(result.Value.Id, (request.PictureFile ?? request.SoundFile)!);
+            //if (request.PictureFile != null || request.SoundFile != null)
+            //    await _attachementSave.Save(result.Value.Id, (request.PictureFile ?? request.SoundFile)!);
 
 
             return Result.Success();

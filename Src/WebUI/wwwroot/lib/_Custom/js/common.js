@@ -7,7 +7,6 @@ var Common = {
         InputAutoHeight();
         ShowUpButton();
         FixNavBarOnScroll();
-        //InitValidation();
 
     },
 };
@@ -126,38 +125,6 @@ function isEmptyOrSpaces    (input) {
 function InputAutoHeight    () {
     $('.auto-height').autogrow({ vertical: true, horizontal: false });
 };
-function ReadImage          (file) {
-    try {
-        var fr = new FileReader();
-        var image = new Image();
-
-        return new Promise((resolve, reject) => {
-
-            fr.onload = (e) => {
-                image.src = e.target.result;
-            };
-            image.onload = function () {
-                resolve({
-
-                    result: true,
-                    message: "",
-                    data: image,
-
-                });
-            };
-
-            image.onerror = (error) => reject({ result: false, message: "Error in loading the image" });
-            fr.onerror = (error) => reject({ result: false, message: "Error in loading the image" });
-
-            fr.readAsDataURL(file);
-        });
-
-
-    } catch (e) {
-         console.log(e);
-    }
-
-}
 function ShowUpButton       () {
     try {
         var wind = $(window);

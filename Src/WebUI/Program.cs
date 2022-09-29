@@ -1,6 +1,7 @@
 
 using Application;
 using Infrastructure;
+using Infrastructure.Log;
 using Infrastructure.Persistence;
 using Serilog;
 using WebUI;

@@ -1,6 +1,7 @@
 ﻿using System.Reflection;
 using System.Text.Json;
 using Autofac;
+using Infrastructure.Log;
 using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.Extensions.Options;
 using WebUI.Configuration;
