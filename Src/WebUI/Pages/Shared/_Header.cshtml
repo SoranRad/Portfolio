@@ -6,16 +6,18 @@
 <nav class="container">
     
     <!---------------------------------- Navbar Brand ---------------------------->
-
-
+    
     <a class="navbar-brand  pt-0 mt-1" asp-page="/Home/Index">
         <img src="@Url.Content("~/dist/images/logo.png")" width="50" height="50" class="float-start" alt=" @SiteSettings.Value.SiteTitleShort"/>
-        <span class=" ">
+        <h1 class="h5 " style="margin-top: 5px;">
+            <span class=" ">
             @SiteSettings.Value.SiteTitleShort
         </span>
         <span id="brand-sub-title" class="d-block text-xsmall">
             @SiteSettings.Value.SiteTitle
         </span>
+        </h1>
+
     </a>
 
     <!---------------------------------- Navbar Menu ---------------------------->
