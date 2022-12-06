@@ -1,9 +1,8 @@
 ﻿using System.Reflection;
 using System.Text.Json;
 using Autofac;
-using Infrastructure.Log;
-using Microsoft.AspNetCore.HttpOverrides;
-using Microsoft.Extensions.Options;
+using Infrastructure.Configuration;
+using Microsoft.AspNetCore.HttpOverrides; 
 using WebUI.Configuration;
 using static System.Net.Mime.MediaTypeNames;
 
@@ -21,9 +20,6 @@ namespace WebUI
         {
             // AutoFact
             builder.Host.AddAutoFact();
-
-            // Serilog
-            builder.Host.AddSeriLog();
 
             // Configuration File
             ConfigurationManager configuration = builder.Configuration;
@@ -78,7 +74,7 @@ namespace WebUI
             {
                 builder.ConfigureDelegate(assembly);
 
-                builder.RegisterSeriLog();
+                builder.RegisterSeriLogToAutoFac();
 
             });
         }

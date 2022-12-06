@@ -6,9 +6,11 @@ using System.Threading.Tasks;
 using Infrastructure.Persistence;
 using Infrastructure.Persistence.Context;
 using Infrastructure.Persistence.Interceptors;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 
 namespace Infrastructure
 {
@@ -16,10 +18,11 @@ namespace Infrastructure
     {
         public static IServiceCollection AddInfrastructureServices
             (
-                this IServiceCollection services, 
-                IConfiguration          configuration
+                this IServiceCollection services,  
+                WebApplicationBuilder   builder
             )
         {
+            var configuration = builder.Configuration;
             // add interceptor
             services.AddScoped<AuditableEntitySaveChangesInterceptor>();
 
@@ -39,6 +42,8 @@ namespace Infrastructure
             // add Initializing
             services.AddScoped<DbContextInitialiser>();
 
+            // clear default logging
+            builder.Logging.ClearProviders();
 
             return services;
         }

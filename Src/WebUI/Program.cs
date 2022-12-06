@@ -1,13 +1,13 @@
 
 using Application;
 using Infrastructure;
-using Infrastructure.Log;
-using Infrastructure.Persistence;
+using Infrastructure.Configuration;  
+using Infrastructure.Persistence.Extention;
 using Serilog;
 using WebUI;
 using WebUI.Configuration;
 
-Log.Logger = SerilogConfig.CreateLoggerConfiguration();
+SerilogConfig.CreateLogger();
 
 try
 {
@@ -15,9 +15,11 @@ try
     var Infrastructure  = typeof(Infrastructure.ConfigureServices).Assembly;
     var builder         = WebApplication.CreateBuilder(args);
 
+    builder.Logging.ClearProviders();
+    
 
     builder.Services.AddWebUIServices           (builder);
-    builder.Services.AddInfrastructureServices  (builder.Configuration);
+    builder.Services.AddInfrastructureServices  (builder);
     builder.Services.AddApplicationServices     ();
 
      
@@ -26,6 +28,7 @@ try
 
     var app = builder.Build();
 
+    
 
     if (!app.Environment.IsDevelopment())
     {
@@ -53,14 +56,8 @@ try
     
     app.MapControllers();
 
-    // apply migration
-    using (var scope = app.Services.CreateScope())
-    {
-        var initialiser = scope.ServiceProvider.GetRequiredService<DbContextInitialiser>();
-        await initialiser.InitialiseAsync();
-        await initialiser.SeedAsync();
-    }
-
+    await app.ApplyMigration();
+   
     app.Run();
 
 }
