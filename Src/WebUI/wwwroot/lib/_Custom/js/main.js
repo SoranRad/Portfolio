@@ -4,5 +4,5 @@
 
     Post.Init();
 
-
+    MediaManager.Init();
 });

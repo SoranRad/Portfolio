@@ -4,10 +4,10 @@ var Common = {
     Init: function () {
 
         InitPlayer      ();
-        InputAutoHeight();
-        ShowUpButton();
+        InputAutoHeight ();
+        ShowUpButton    ();
         FixNavBarOnScroll();
-
+        ChangePic       ();
     },
 };
 function InitValidation     () {
@@ -40,7 +40,7 @@ function ChangePic          () {
         if (showitem)
             $(showitem).removeClass('d-none');
     });
-
+     
 };
 function ReadImage          (file) {
     try {

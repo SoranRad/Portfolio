@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Infrastructure.File;
 using Infrastructure.Persistence;
 using Infrastructure.Persistence.Context;
 using Infrastructure.Persistence.Interceptors;
@@ -41,6 +42,7 @@ namespace Infrastructure
 
             // add Initializing
             services.AddScoped<DbContextInitialiser>();
+            services.AddTransient<IMediaManagerService, MediaManagerService>();
 
             // clear default logging
             builder.Logging.ClearProviders();

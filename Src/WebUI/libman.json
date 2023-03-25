@@ -69,6 +69,19 @@
     {
       "library": "jquery.ns-autogrow@1.1.6",
       "destination": "wwwroot/lib/jquery.ns-autogrow/"
+    },
+    {
+      "library": "Dropify@0.2.2",
+      "destination": "wwwroot/lib/Dropify/"
+    },
+    {
+      "library": "tinymce@6.4.0",
+      "destination": "wwwroot/lib/tinymce/"
+    },
+    {
+      "provider": "jsdelivr",
+      "library": "@tinymce/tinymce-jquery@2.0.0",
+      "destination": "wwwroot/lib/tinymce/tinymce-jquery/"
     }
   ]
 }

@@ -1,0 +1,144 @@
+﻿@inject IMediaManagerService _galleryService
+
+@{
+    var Form        = new MediaImagesViewModel();
+    var resourceUrl = _galleryService.GetGalleryRootPath();
+}
+
+<div 
+    style="z-index: 2222 !important;"
+    @* data-url="@Url.Content("~/image/gallery/")" *@
+     class="modal fade " 
+     data-backdrop="static" 
+     data-keyboard="false" 
+     id="media-manager-modal" 
+     tabindex="-1" 
+     aria-labelledby="media-manager-modal" 
+     aria-hidden="true">
+    <div class="modal-dialog  modal-xl modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header py-2 px-3 border-0">
+                
+                <ul class="nav nav-tabs w-100" id="media-manager-tab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <a 
+                            class="nav-link active"
+                            id="new-pic-tab" 
+                            data-bs-toggle="tab"
+                            data-bs-target="#new-pic"
+                            type="button" 
+                            role="tab"
+                            aria-controls="new-pic"
+                            aria-selected="true">
+                            Add New
+                        </a>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <a 
+                            class="nav-link" 
+                            id="gallery-tab"
+                            data-bs-toggle="tab"
+                            data-bs-target="#gallery-pics"
+                            role="tab" 
+                            aria-controls="gallery-pics" 
+                            aria-selected="false">
+                            Select from gallery
+                            
+                            <span
+                                id="spinner-gallery-loading"
+                                role="status"
+                                class="spinner-border spinner-border-sm mr-1 d-none">
+
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="modal-body p-1" style="height: 400px;">
+                <div class="tab-content h-100" id="media-manager-tab-content">
+                    <div class="tab-pane fade show active h-100" style="overflow-y: auto;" 
+                         id="new-pic" 
+                         role="tabpanel" 
+                         aria-labelledby="new-pic-tab">
+                        
+                        <form asp-antiforgery="true"
+                              asp-controller="MediaManager"
+                              asp-action="Post"
+                              data-ajax="true"
+                              data-ajax-method="POST"
+                              data-ajax-loading="#spinner2"
+                              data-ajax-complete="AjaxComplete"
+                              data-ajax-success="ImageUploadSuccess"
+                              data-ajax-failure="AjaxFail"
+                              enctype="multipart/form-data"
+                              class="h-100"
+                              id="media-manager-form"
+                              method="post">
+
+                            <div class="row d-flex g-0 flex-column align-items-center ">
+                                <div class="col-12">
+
+                                    <input
+                                        class="dropify FilePic "
+                                        
+                                        data-max-file-size="2M"
+                                        data-show-errors="true"
+                                        data-allowed-file-extensions="png jpg jpeg gif bmp"
+                                     
+                                        data-height="320" 
+                                        data-show-item="#save-logo"
+
+                                        type="file"
+                                        asp-for="@Form.Image"
+                                        name="@nameof(Form.Image)"/>
+
+                                </div>
+                                <div class="col-12">
+                                    <div class=" d-flex flex-column align-items-center ">
+                                        <span asp-validation-for="@Form.Image" data-valmsg-for="@nameof(Model.Form.Image)"></span>
+                                        <div class="validation-errors alert alert-danger d-none" role="alert">
+                                            <ul>
+
+                                            </ul>
+                                        </div>
+                                        <button type="submit" id="save-logo" class="btn btn-success btn-sm d-none mt-1">
+                                            <i class="fas fa-upload ms-2"></i>
+                                            Upload Image
+                                            <Spinner asp-id="spinner2" asp-AppendClass="mr-2"></Spinner>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                                
+                        </form>
+                    </div>
+                    <div class="tab-pane fade h-100" 
+                         id="gallery-pics" 
+                         role="tabpanel" 
+                         style="overflow-y: auto;overflow-x: hidden" 
+                         aria-labelledby="gallery-tab">
+                        
+                        <div id="media-gallery" class="row d-flex justify-content-start">
+                            
+                        </div>
+                        
+
+                    </div> 
+                </div>
+            </div>
+            <div class="modal-footer d-flex justify-content-between p-2">
+               
+                    <button id="copy-img-path" class="btn btn-success btn-sm">
+                        <i class="far fa-copy"></i>
+                        Select Image
+                    </button>
+
+                    <button id="cancel-img" class="btn btn-danger btn-sm">
+                        <i class="fas fa-ban"></i>
+                        Cancel
+                    </button>
+               
+            </div>
+        </div>
+    </div>
+</div>

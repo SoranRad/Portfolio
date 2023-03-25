@@ -40,6 +40,9 @@
                     'wwwroot/lib/waypoints/jquery.waypoints.js', 
                     'wwwroot/lib/waypoints/shortcuts/infinite.js', 
                     'wwwroot/lib/jquery.ns-autogrow/jquery.ns-autogrow.js', 
+                    'wwwroot/lib/dropify/js/dropify.js', 
+                    'wwwroot/lib/tinymce/tinymce.min.js', 
+                    'wwwroot/lib/tinymce/tinymce-jquery/dist/tinymce-jquery.js',  
 
 
                     'wwwroot/lib/_custom/js/main.js',
@@ -47,7 +50,8 @@
                     'wwwroot/lib/_custom/js/common.js',
                     'wwwroot/lib/_custom/js/PostForms.js',
                     'wwwroot/lib/_custom/js/posts.js',
-                    'wwwroot/lib/_custom/js/cropper.js'
+                    'wwwroot/lib/_custom/js/cropper.js',
+                    'wwwroot/lib/_custom/js/mediamanager.js'
 
                 ],
                 dest: 'wwwroot/dist/js/site.min.js'
@@ -73,7 +77,8 @@
 
                         'wwwroot/lib/bootstrap-sweetalert/sweetalert.css',
                         'wwwroot/lib/bootstrap-tagsinput/bootstrap-tagsinput.css',
-
+                        'wwwroot/lib/dropify/css/dropify.css',
+                        'wwwroot/lib/bootstrap-tagsinput/bootstrap-tagsinput.css',
 
                         'wwwroot/lib/_custom/css/reset.css',
                         'wwwroot/lib/_custom/css/helper.css',
@@ -83,7 +88,8 @@
                         'wwwroot/lib/_custom/css/footer.css',
                         'wwwroot/lib/_custom/css/posts.css',
                         'wwwroot/lib/_custom/css/sidebar.css',
-                        'wwwroot/lib/_custom/css/about.css'
+                        'wwwroot/lib/_custom/css/about.css',
+                        'wwwroot/lib/_custom/css/mediamanager.css'
 
                     ]
                 }
